@@ -1,0 +1,69 @@
+---
+title: "Untitled"
+author: ""
+date: ""
+output: 
+  html_document:
+    fig_height: 3
+    fig_width: 5
+---
+<!-- Don't edit in between this line and the one below -->
+```{r include=FALSE}
+# Don't delete this chunk if you are using the DataComputing package
+library(DataComputing)
+library(sqldf)
+library(stringr)
+```
+*Source file* 
+```{r, results='asis', echo=FALSE}
+includeSourceDocuments()
+```
+<!-- Don't edit the material above this line -->
+
+
+```{r}
+#write.csv(date_apart_data,file = './date_apart_data.csv')
+
+date_data <- read.csv(file ='./date_data.csv', header = TRUE)
+
+date_data
+```
+
+Now we separate `Date` column by date and time , and save the time to a new column and append it to the end or right next to `Date`
+
+
+```{r}
+#try_out_sql <- sqldf('SELECT date(as.character(Date)), time(as.character(Date)) from date_apart_data')
+
+
+date_and_time <- do.call(rbind, strsplit(as.character(date_data$Date), " "))
+
+date_and_time
+```
+
+Append the time to new column next to `Date`
+
+```{r}
+date_apart_data <- cbind(date_data[,'Date'], date_and_time[,2], date_data[,2:ncol(date_data)])
+
+date_apart_data
+```
+## Rename columns
+
+```{r}
+
+names(date_apart_data[,1:2]) <- c('Date','Time')
+
+date_apart_data
+```
+
+This doesn't work. The reason is that I did not access the vector indices. Here is the correct way of renaming columns
+
+```{r}
+names(date_apart_data)[1:2] <- c('Date', 'Time')
+
+date_apart_data
+```
+
+Note: There is a way to do this in SQL. It depends on the encoding of the `Date` variable
+
