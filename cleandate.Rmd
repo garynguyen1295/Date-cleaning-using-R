@@ -65,5 +65,10 @@ names(date_apart_data)[1:2] <- c('Date', 'Time')
 date_apart_data
 ```
 
+Output the csv file of the end output
+```{r}
+# write.csv(date_apart_data, file = './final_date_apart_data.csv', row.names = FALSE)
+```
+
 Note: There is a way to do this in SQL. It depends on the encoding of the `Date` variable
 
