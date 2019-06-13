@@ -23,6 +23,8 @@ This operation can be done in SQL
 
 * The `do.call` operation is related to the `apply` family (sapply, lapply). More investigation can be done.
 
+------
+
 ## Author: Gary Thuc Nguyen
 
 ## Creative commons license:
