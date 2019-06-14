@@ -9,7 +9,7 @@ The `final_date_apart_data.csv` shows what the new dataset looks like.
 
 **From this data**
 
-![from](https://rawgithub.com/garynguyen1295/Date-cleaning-using-R/master/images/from.png)
+![from](https://raw.githubusercontent.com/garynguyen1295/Date-cleaning-using-R/master/images/from.png)
 
 **To this new data**
 
